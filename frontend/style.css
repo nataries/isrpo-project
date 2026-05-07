@@ -1,0 +1,345 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+    background: linear-gradient(135deg, #2db4ea 0%, #094653 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+h1 {
+    color: white;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.balance-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px 30px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.balance-label {
+    font-size: 0.9rem;
+    color: #1e40d7;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.balance-amount {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0e1da4;
+}
+
+.balance-currency {
+    font-size: 0.8rem;
+    color: #000409;
+}
+
+.reset-btn {
+    margin-top: 10px;
+    padding: 5px 15px;
+    background: #e53e3e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.2s;
+}
+
+.reset-btn:hover {
+    background: #c53030;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    background: white;
+    border: 2px solid;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #0f711e;
+    font-weight: 500;
+}
+
+.filter-btn:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.filter-btn.active {
+    background: #1a2f8d;
+    color: white;
+    border-color: #1934ae;
+}
+
+.loading-text {
+    text-align: center;
+    color: white;
+    padding: 40px;
+}
+
+.error-message {
+    color: #feb2b2;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.matches-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 20px;
+}
+
+.match-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+    border: 1px solid;
+}
+
+.match-card:hover {
+    box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+}
+
+.match-card.completed {
+    opacity: 0.8;
+    background: #f7fafc;
+}
+
+.match-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 15px;
+    color: white;
+    border-radius: 16px 16px 0 0;
+}
+
+.match-league {
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+.match-teams {
+    font-weight: bold;
+    margin-top: 5px;
+    margin-top: 8px;
+}
+
+.match-body {
+    padding: 15px;
+}
+
+.match-odds {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.odd-item {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    background: #edf2f7;
+    border: 1px solid;
+    border-radius: 8px;
+}
+
+.odd-label {
+    font-size: 0.7rem;
+    color: #718096;
+    margin-bottom: 5px;
+}
+
+.odd-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2d3748;
+}
+
+.match-result {
+    text-align: center;
+    padding: 10px;
+    background: #c6f6d5;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #22543d;
+}
+
+.match-pending {
+    text-align: center;
+    padding: 10px;
+    background: #fef5e7;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    color: #c05621;
+}
+
+.bet-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.bet-btn {
+    flex: 1;
+    padding: 10px 8px;
+    background: #1341c1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.bet-btn:disabled {
+    background: #cbd5e0;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 450px;
+}
+
+.close:hover {
+    color: #e53e3e;
+}
+
+.modal-match-info {
+    background: #edf2f7;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+.bet-amount-input {
+    margin: 20px 0;
+}
+
+.bet-amount-input label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #2d3748;
+}
+
+.bet-amount-input input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    transition: border-color 0.2s;
+}
+
+.bet-amount-input input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.confirm-bet-btn {
+    width: 100%;
+    padding: 12px;
+    background: #0f0fa8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.confirm-bet-btn:hover {
+    background: #102dac;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.confirm-bet-btn:active {
+    transform: translateY(0);
+}
+
+.bet-error {
+    color: #e53e3e;
+    margin-top: 10px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.empty-text {
+    text-align: center;
+    color: #000306;
+    padding: 3px;
+}
+
+.complete-match-btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px;
+    background: #ed8936;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.complete-match-btn:hover {
+    background: #dd6b20;
+    transform: translateY(-1px);
+}
+

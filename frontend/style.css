@@ -140,7 +140,7 @@ h1 {
 }
 
 .match-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #15bd2c 0%, #9eaf1d 100%);
     padding: 15px;
     color: white;
     border-radius: 16px 16px 0 0;
@@ -216,7 +216,7 @@ h1 {
 .bet-btn {
     flex: 1;
     padding: 10px 8px;
-    background: #1341c1;
+    background: #097325;
     color: white;
     border: none;
     border-radius: 8px;
@@ -252,7 +252,7 @@ h1 {
 }
 
 .close:hover {
-    color: #e53e3e;
+    color: #f50606;
 }
 
 .modal-match-info {
@@ -328,7 +328,7 @@ h1 {
     width: 100%;
     margin-top: 10px;
     padding: 8px;
-    background: #ed8936;
+    background: #fd130f;
     color: white;
     border: none;
     border-radius: 6px;
